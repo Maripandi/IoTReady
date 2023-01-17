@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+
+<section class="py-4 py-xl-5">
+    <div class="container h-100" data-aos="fade-up" data-aos-duration="200" data-aos-delay="150" style="box-shadow: 0px 0px 4px 1px;border-top-left-radius: 6px;border-top-right-radius: 6px;border-bottom-right-radius: 6px;border-bottom-left-radius: 6px;">
+        
+        <div class="container">
+            <form>
+                <div class="row">
+                
+                    <div class="col-md-6" data-aos="fade-up" data-aos-duration="300" data-aos-delay="200">
+                        <label class="form-label" data-aos="fade-up" data-aos-duration="400" data-aos-delay="300">Hub <span style="color: var(--bs-red);">*</span>
+                        </label>
+                        <input class="form-control" type="text" value="{{ context['hub'] }}" data-aos="fade-up" data-aos-duration="400" data-aos-delay="300">
+                        
+                    </div>
+                    <div class="col-md-6" data-aos="fade-up" data-aos-duration="300" data-aos-delay="200">
+                        <label class="form-label" data-aos="fade-up" data-aos-duration="400" data-aos-delay="300">Supplier Name&nbsp;<span style="color: var(--bs-red);">*</span>
+                        </label>
+                        <input class="form-control" type="text" value="{{ context['supplier_name']}}" data-aos="fade-up" data-aos-duration="400" data-aos-delay="300">
+
+                    </div>
+                    <div class="col-md-6" data-aos="fade-up" data-aos-duration="300" data-aos-delay="200">
+                        
+                        <label class="form-label" data-aos="fade-up" data-aos-duration="400" data-aos-delay="300">Supplier&nbsp;<span style="color: var(--bs-red);">*</span>
+                        </label>
+                        <input class="form-control" type="text" value="{{ context['supplier']}}" data-aos="fade-up" data-aos-duration="400" data-aos-delay="300">
+                        
+                    </div>
+                    <div class="col-md-6" data-aos="fade-up" data-aos-duration="300" data-aos-delay="200">
+                        <label class="form-label" data-aos="fade-up" data-aos-duration="400" data-aos-delay="300">GRN&nbsp;<span style="color: var(--bs-red);">*</span>
+                        </label>
+                        <input class="form-control" type="text" value="{{ context['grn']}}" data-aos="fade-up" data-aos-duration="400" data-aos-delay="300">
+
+                    </div>
+                    <br><br><br><br><br>
+                    <button class="btn btn-primary" data-aos="fade-up" data-aos-duration="400" data-aos-delay="300" type="submit" style="width: 100%;">Submit</button>
+                    
+                </div>
+            </form>
+            <br>
+        </div>
+        
+        
+    </div>
+</section>
+
+<section class="py-4 py-xl-5">
+    <div class="container h-100" data-aos="fade-up" data-aos-duration="200" data-aos-delay="150" style="box-shadow: 0px 0px 4px 1px;border-top-left-radius: 6px;border-top-right-radius: 6px;border-bottom-right-radius: 6px;">
+        
+        <div class="container">
+            <h1 data-aos="fade-up" data-aos-duration="400" data-aos-delay="300">SKU Summary</h1>
+  
+            <caption>SKU Table</caption>
+            <div class="table-responsive">
+                <table class="table table-striped
+                table-hover	
+                table-bordered
+                
+                align-middle">
+                    {% for x in context['sku_table'] %}
+                    <thead>
+                        <tr>
+                            {% for i in x.keys() %}
+                                <th data-aos="fade-up" data-aos-duration="400" data-aos-delay="300">{{ i | upper }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            {% for i in x.values() %}
+                            <td data-aos="fade-up" data-aos-duration="400" data-aos-delay="300">{{ i }}</td>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>        
+    </div>
+</section>
+
+<section class="py-4 py-xl-5">
+    <div class="container h-100" data-aos="fade-up" data-aos-duration="200" data-aos-delay="150" style="box-shadow: 0px 0px 4px 1px;border-top-left-radius: 6px;border-top-right-radius: 6px;border-bottom-right-radius: 6px;">
+        
+        <div class="container">
+            <h1 data-aos="fade-up" data-aos-duration="400" data-aos-delay="300">Crate List</h1>
+  
+            <caption>Crate Table</caption>
+            <div class="table-responsive">
+                <table class="table table-striped
+                table-hover	
+                table-bordered
+                
+                align-middle">
+                    
+                    <thead>
+                        <tr>
+                            {% for i in context['x_values'] %}
+                                <th data-aos="fade-up" data-aos-duration="400" data-aos-delay="300">{{ i | upper }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                    {% for x in context['crate_table'] %}    
+                        <tr>
+                            {% for i in x.values() %}
+                            <td data-aos="fade-up" data-aos-duration="400" data-aos-delay="300">{{ i }}</td>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>        
+    </div>
+</section>
+
+
+
+
+
+<section class="py-4 py-xl-5">
+    <div class="container h-100" data-aos="fade-up" data-aos-duration="200" data-aos-delay="150" style="box-shadow: 0px 0px 4px 1px;border-top-left-radius: 6px;border-top-right-radius: 6px;border-bottom-right-radius: 6px;border-bottom-left-radius: 6px;">
+        
+        <div class="container">
+            <h2 class="display-2">My Personl Details</h2>
+                <div class="row">
+                
+                    <div class="col-md-6" data-aos="fade-up" data-aos-duration="300" data-aos-delay="200">
+                        <h4 class="display-4">Name :</h4>
+                    </div>
+                    <div class="col-md-6" data-aos="fade-up" data-aos-duration="300" data-aos-delay="200">
+                        <h4 class="display-4">Maripandi P</h4>
+                    </div>
+                    <div class="col-md-6" data-aos="fade-up" data-aos-duration="300" data-aos-delay="200">
+                        <h4 class="display-4">Phone :</h4>
+           
+                    </div>
+                    <div class="col-md-6" data-aos="fade-up" data-aos-duration="300" data-aos-delay="200">
+                        <h4 class="display-4">+91 9043735730</h4>
+                    </div>
+                    <div class="col-md-6" data-aos="fade-up" data-aos-duration="300" data-aos-delay="200">
+                        <h4 class="display-4">Email :</h4>
+           
+                    </div>
+                    <div class="col-md-6" data-aos="fade-up" data-aos-duration="300" data-aos-delay="200">
+                        <h4 class="display-4">maripandi421@gmail.com</h4>
+                    </div>
+                    <div class="col-md-6" data-aos="fade-up" data-aos-duration="300" data-aos-delay="200">
+                        <h4 class="display-4">Github :</h4>
+           
+                    </div>
+                    <div class="col-md-6" data-aos="fade-up" data-aos-duration="300" data-aos-delay="200">
+                        <a name="" id="" href="https://github.com/Maripandi"><h6 class="display-6">https://github.com/Maripandi</h6></a>
+                        
+                    </div>
+                    <div class="col-md-6" data-aos="fade-up" data-aos-duration="300" data-aos-delay="200">
+                        <h4 class="display-4">Personal Blog :</h4>
+           
+                    </div>
+                    <div class="col-md-6" data-aos="fade-up" data-aos-duration="300" data-aos-delay="200">
+                        <a name="" id="" href="https://github.com/Maripandi"><h6 class="display-6">https://maripandi.static.app</h6></a>
+                    </div>
+                    <br>
+                    
+                </div>
+            
+            <br>
+        </div>
+        
+        
+    </div>
+</section>
+
+
+
+
+
+{% endblock content %}
